@@ -11,6 +11,8 @@ class DashboardController extends Controller
     // Main dashboard page
     public function index(Request $request): Response
     {
-        return Inertia::render('Dashboard/Index');
+        $games = \App\Models\Game::get()->toArray();
+
+        return Inertia::render('Dashboard/Index', ['games' => $games, 'game_count' => count($games)]);
     }
 }
