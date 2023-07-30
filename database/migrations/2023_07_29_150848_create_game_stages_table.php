@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('type', ['start', 'default', 'death', 'victory']);
             $table->timestamps();
 
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->foreign('game_id')->references('id')->on('games')->onDelete('cascade');
         });
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 
@@ -33,6 +34,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/game/create', [GameController::class, 'create'])->name('game.create');
+    Route::get('/game/edit', [GameController::class, 'edit'])->name('game.edit');
+    Route::get('/game/delete', [GameController::class, 'delete'])->name('game.delete');
+    Route::post('/game', [GameController::class, 'save'])->name('game.save');
+    Route::patch('/game', [GameController::class, 'update'])->name('game.update');
+    Route::delete('/game', [GameController::class, 'destroy'])->name('game.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->smallInteger('order');
             $table->timestamps();
             
-            $table->foreign('game_stage_id')->references('id')->on('game_stages');
+            $table->foreign('game_stage_id')->references('id')->on('game_stages')->onDelete('cascade');
             $table->foreign('game_stage_target_id')->references('id')->on('game_stages');
         });
     }
