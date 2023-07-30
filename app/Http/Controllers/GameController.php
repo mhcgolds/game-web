@@ -22,14 +22,14 @@ class GameController extends Controller
 
     public function edit(Request $request): Response
     {
-        $game = Game::where('id', $request->input('id'))->first();
+        $game = Game::find($request->input('id'));
 
         return Inertia::render('Game/Form', ['game' => $game]);
     }
 
     public function delete(Request $request): Response
     {
-        $game = Game::where('id', $request->input('id'))->first();
+        $game = Game::find($request->input('id'));
 
         return Inertia::render('Game/Delete', ['game' => $game]);
     }
@@ -46,7 +46,7 @@ class GameController extends Controller
 
     public function update(GameUpdateRequest $request): RedirectResponse
     {
-        $game = Game::where('id', $request->input('id'))->first();
+        $game = Game::find($request->input('id'));
         $game->fill($request->all());
         $game->save();
 
@@ -55,8 +55,15 @@ class GameController extends Controller
 
     public function destroy(GameDeleteRequest $request): RedirectResponse
     {
-        $game = Game::where('id', $request->input('id'))->delete();
+        Game::find($request->input('id'))->delete();
 
         return Redirect::route('dashboard');
+    }
+
+    public function manage(Request $request): Response
+    {
+        $game = Game::with(['stages', 'stages.actions'])->find($request->input('id'));
+
+        return Inertia::render('Game/Manage', ['game' => $game]);
     }
 }

@@ -19,5 +19,11 @@
         "vite": "^4.0.0",
         "vue": "^3.2.41",
         "vue-tsc": "^1.2.0"
+    },
+    "dependencies": {
+        "@progress/kendo-datasource-vue-wrapper": "^2023.2.718",
+        "@progress/kendo-diagram-vue-wrapper": "^2023.2.718",
+        "@progress/kendo-theme-default": "^6.6.0",
+        "@progress/kendo-ui": "^2023.2.718"
     }
 }

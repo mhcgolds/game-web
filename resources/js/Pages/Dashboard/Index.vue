@@ -18,10 +18,13 @@ defineProps({ games: Array<typeof Game>, game_count: Number })
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
                         Meus jogos ({{ game_count }}) - <Link :href="route('game.create')">New</Link>
-                    
+
                         <hr/>
                         <ul>
-                            <li v-for="game in games">{{ game.title }} - <Link :href="route('game.edit', { id: game.id })">Edit</Link> - <Link :href="route('game.delete', { id: game.id })">Delete</Link></li>
+                            <li v-for="game in games">{{ game.title }} -
+                                <Link :href="route('game.edit', { id: game.id })">Edit</Link> -
+                                <Link :href="route('game.manage', { id: game.id })">Stages</Link> -
+                                <Link :href="route('game.delete', { id: game.id })">Delete</Link></li>
                         </ul>
                     </div>
                 </div>

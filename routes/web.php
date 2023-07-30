@@ -41,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/game', [GameController::class, 'save'])->name('game.save');
     Route::patch('/game', [GameController::class, 'update'])->name('game.update');
     Route::delete('/game', [GameController::class, 'destroy'])->name('game.destroy');
+
+    Route::get('/game/stages', [GameController::class, 'manage'])->name('game.manage');
+    Route::post('/game/stages', [GameController::class, 'stages'])->name('game.stages');
 });
 
 require __DIR__.'/auth.php';

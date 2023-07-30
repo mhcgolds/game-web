@@ -30,21 +30,27 @@ class GameSeeder extends Seeder
             'game_id' => 1,
             'type' => 'start',
             'title' => 'Stage #1',
-            'content' => 'You are in a room with no windows and two doors. One door is red with a sign that says "DEATH". The other door is green with a sign that says "VICTORY". Which one would you choose?'
+            'content' => 'You are in a room with no windows and two doors. One door is red with a sign that says "DEATH". The other door is green with a sign that says "VICTORY". Which one would you choose?',
+            'x' => 0,
+            'y' => 0
         ]);
 
         DB::table('game_stages')->insert([ // stage id = 2
             'game_id' => 1,
             'type' => 'death',
             'title' => 'You died',
-            'content' => 'You have chosen DEATH.'
+            'content' => 'You have chosen DEATH.',
+            'x' => 250,
+            'y' => 0
         ]);
 
         DB::table('game_stages')->insert([ // stage id = 3
             'game_id' => 1,
             'type' => 'victory',
             'title' => 'You win',
-            'content' => 'You have chosen VICTORY.'
+            'content' => 'You have chosen VICTORY.',
+            'x' => 500,
+            'y' => 0
         ]);
 
         DB::table('game_stage_actions')->insert([ // stage action id = 1
