@@ -13,7 +13,8 @@ const model = usePage().props.game as typeof Game;
 console.log(model);
 
 const form = useForm({
-    id: model.id
+    id: model.id,
+    data: []
 });
 
 // Diagram
@@ -108,6 +109,7 @@ const addConnectionToStage = function(originShapeId, targetShapeId) {
 };
 
 const formSubmit = function() {
+
     diagramData;
     //form.post(route('game.stages'));
 };
@@ -147,6 +149,7 @@ const formSubmit = function() {
             </div>
 
             <HiddenIdInput v-model="game.id"></HiddenIdInput>
+            <input type="hidden" id="data" name="data">
         </form>
     </AuthenticatedLayout>
 </template>
